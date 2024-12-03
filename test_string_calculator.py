@@ -26,6 +26,11 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         result = calculator.add("//;\n1;2")
         self.assertEqual(result, 3)
+    
+    def test_add_negative_numbers(self):
+        calculator = StringCalculator()
+        with self.assertRaises(ValueError):
+            calculator.add("1,-2,3,-4")
 
 if __name__ == '__main__':
     unittest.main()
