@@ -9,10 +9,10 @@ class StringCalculator:
             raise ValueError(f"Negative numbers not allowed: {', '.join(map(str, negatives))}")
         
         if numbers.startswith("//"):
-
-            delimiter_part, numbers = numbers[2:].split("\n", 1)
-            delimiter = re.findall(r'\[([^\]]+)\]', delimiter_part)[0]
+            delimiter, numbers = numbers[2:].split("\n", 1)
+            if '[' in delimiter:
+                delimiter = delimiter[1:-1]
             numbers = numbers.replace(delimiter, ",")
         numbers = numbers.replace("\n", ",")
 
-        return int(sum(num for num in map(int, numbers.split(',')) if num < 1000)) 
+        return int(sum(num for num in map(int, numbers.split(',')) if num < 1000))
