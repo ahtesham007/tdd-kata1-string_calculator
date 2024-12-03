@@ -31,6 +31,11 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         with self.assertRaises(ValueError):
             calculator.add("1,-2,3,-4")
+    
+    def test_ignore_numbers_above_1000(self):
+        calculator = StringCalculator()
+        result = calculator.add("2,1001")
+        self.assertEqual(result, 2)
 
 if __name__ == '__main__':
     unittest.main()
