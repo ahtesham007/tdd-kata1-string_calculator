@@ -41,6 +41,11 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         result = calculator.add("//[;;]\n1;;2")
         self.assertEqual(result, 3)
+    
+    def test_multiple_delimiter_short_length(self):
+        calculator = StringCalculator()
+        result = calculator.add("//[*][%]\n1*2%3")
+        self.assertEqual(result, 6)
 
 if __name__ == '__main__':
     unittest.main()
