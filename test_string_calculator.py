@@ -11,6 +11,11 @@ class TestStringCalculator(unittest.TestCase):
         calculator = StringCalculator()
         result = calculator.add("1")
         self.assertEqual(result, 1)
+    
+    def test_add_two_numbers(self):
+        calculator = StringCalculator()
+        result = calculator.add("1,5")
+        self.assertEqual(result, 6)
 
 if __name__ == '__main__':
     unittest.main()
