@@ -13,4 +13,4 @@ class StringCalculator:
             numbers = numbers.replace(delimiter, ",")
         numbers = numbers.replace("\n", ",")
 
-        return int(sum(map(int, numbers.split(',')))) 
+        return int(sum(num for num in map(int, numbers.split(',')) if num < 1000)) 
